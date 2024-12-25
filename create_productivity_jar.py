@@ -80,8 +80,7 @@ def getSimplePath(listpath,path,list_name_simple_java):
             
 def deleteFile(list_name_class,classPath,list_name_simple_java):
     for classFile in list_name_class:
-    	tmpFile=classFile
-        classFile=classFile.replace(classPath,"")
+        tmpFile=classFileclassFile=classFile.replace(classPath,"")
         if '$' in classFile:
             classFile=classFile.split('$')[0]
         if '.class' in classFile:
@@ -110,16 +109,16 @@ def delete_gap_dir(dir):
 		
 #删除指定文件夹意外的文件夹
 def DeleteFiles(path,remainDirsList,dirsList):
-	dirsList = []
-  	dirsList = os.listdir(path)
-  	for f in dirsList:
-		if f not in remainDirsList:
-			filePath = os.path.join(path,f)
-			if os.path.isdir(filePath):						
-				shutil.rmtree(filePath, True)
-				if f in filesList:
-					filePath = os.path.join(path,f)
-					os.remove(f)
+    dirsList = []
+    dirsList = os.listdir(path)
+    for f in dirsList:
+        if f not in remainDirsList:
+            filePath = os.path.join(path,f)
+            if os.path.isdir(filePath):						
+                shutil.rmtree(filePath, True)
+                if f in filesList:
+                    filePath = os.path.join(path,f)
+                    os.remove(f)
  
 #压缩指定文件			
 def zip_dir(dirname,zipfilename):
@@ -201,7 +200,7 @@ zip_dir(unzip_file+"/",JARpath+selectCreateJar+".jar")
 print("\033[1;32m create jar successful:"+JARpath+selectCreateJar+".jar\033[0m")
 
 time2 = time.time() - time1
-print'\033[1;32m 用时:', time2,'s\033[0m '
+print('\033[1;32m 用时:', time2,'s\033[0m ')
 #print'删除文件夹个数:',NUM_COUNT
 #print('删除完毕')
 
